@@ -1,5 +1,8 @@
-{{ app_name }}
+django-{{ app_name }}
 ========================
+
+.. image:: https://travis-ci.org/littlepea/django-{{ app_name }}.png?branch=master
+    :target: http://travis-ci.org/littlepea/django-{{ app_name }}
 
 Welcome to the documentation for django-{{ app_name }}!
 
