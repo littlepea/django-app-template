@@ -11,16 +11,23 @@ def read_file(filename):
     except IOError:
         return ''
 
+try:
+    REQUIREMENTS = read_file('requirements.txt').read()
+except:
+    REQUIREMENTS = [
+        'Django',
+    ]
+
 
 setup(
     name='django-{{ app_name }}',
     version=__import__('{{ app_name }}').__version__,
-    author='<Include Your Name Here>',
-    author_email='<Include Your Email Here>',
+    author='Evgeny Demchenko',
+    author_email='little_pea@list.ru',
     packages=find_packages(),
     include_package_data=True,
-    url='<Include Link to Project>',
-    license='<Include License Name>',
+    url='https://github.com/littlepea/django-{{ app_name }}',
+    license='BSD',
     description=u' '.join(__import__('{{ app_name }}').__doc__.splitlines()).strip(),
     classifiers=[
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
@@ -33,6 +40,12 @@ setup(
         'Operating System :: OS Independent',
     ],
     long_description=read_file('README.rst'),
-    test_suite="runtests.runtests",
+    test_suite='{{ app_name }}.tests.runtests.runtests',
+    tests_require=[
+        'django-nose',
+        'coverage',
+        'django-coverage',
+    ],
     zip_safe=False,
+    install_requires=REQUIREMENTS,
 )
