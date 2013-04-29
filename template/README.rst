@@ -16,4 +16,4 @@ You can run the tests with via::
 
 or::
 
-    python runtests.py
+    python {{ app_name }}/tests/runtests.py
